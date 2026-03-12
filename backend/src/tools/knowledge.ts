@@ -64,12 +64,19 @@ async function ensureVectorChunks(): Promise<VectorChunk[] | null> {
   }
 }
 
-function simpleSearch(query: string): Chunk[] {
+function simpleSearch(query: string, maxResults = 3): Chunk[] {
   const words = query.toLowerCase().split(/\s+/).filter((w) => w.length > 2);
-  return KNOWLEDGE_CHUNKS.filter((c) => {
+  if (words.length === 0) return [];
+
+  return KNOWLEDGE_CHUNKS.map((c) => {
     const content = c.content.toLowerCase();
-    return words.some((w) => content.includes(w));
-  });
+    const matchCount = words.filter((w) => content.includes(w)).length;
+    return { chunk: c, matchCount };
+  })
+    .filter(({ matchCount }) => matchCount > 0)
+    .sort((a, b) => b.matchCount - a.matchCount)
+    .slice(0, maxResults)
+    .map(({ chunk }) => chunk);
 }
 
 export function kbSearch(query: string): { chunkIds: string[]; snippets: string[] } {
@@ -88,7 +95,7 @@ export async function kbSearchSemantic(query: string): Promise<{ chunkIds: strin
 
   try {
     const queryVector = await embedText(query);
-    const matches = searchBySimilarity(queryVector, vectorChunks, 5);
+    const matches = searchBySimilarity(queryVector, vectorChunks, 3);
     return {
       chunkIds: matches.map((c) => c.id),
       snippets: matches.map((c) => c.content),

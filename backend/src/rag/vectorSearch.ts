@@ -18,10 +18,13 @@ export interface VectorChunk {
   vector: number[];
 }
 
+/** Minimum similarity score to include a chunk (0.4 = moderate relevance) */
+const MIN_SIMILARITY_THRESHOLD = 0.4;
+
 export function searchBySimilarity(
   queryVector: number[],
   chunks: VectorChunk[],
-  topK = 5
+  topK = 3
 ): VectorChunk[] {
   return chunks
     .map((chunk) => ({
@@ -30,6 +33,6 @@ export function searchBySimilarity(
     }))
     .sort((a, b) => b.score - a.score)
     .slice(0, topK)
-    .filter(({ score }) => score > 0.3)
+    .filter(({ score }) => score > MIN_SIMILARITY_THRESHOLD)
     .map(({ chunk }) => chunk);
 }
