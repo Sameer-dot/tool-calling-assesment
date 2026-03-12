@@ -1,0 +1,29 @@
+Company: Glow Aesthetics Clinic
+
+Description:
+Glow Aesthetics Clinic is a premium skincare and aesthetic center in Riyadh. We specialize in non-surgical treatments including Botox, dermal fillers, chemical peels, laser treatments, and personalized skincare regimens.
+
+Services:
+- Botox: Injectable treatment for fine lines and wrinkles. Typical session 30-45 minutes.
+- Dermal Fillers: Restore volume and enhance facial contours.
+- Chemical Peels: Improve skin texture and tone.
+- Laser Treatments: Hair removal, skin resurfacing, pigmentation.
+- Facials: Customized facials for all skin types.
+- Skincare Consultations: Personalized product recommendations.
+
+Location:
+Riyadh, King Fahd Road. Free parking available for all clients.
+
+Working Hours:
+Sunday to Thursday: 9:00 AM - 8:00 PM
+Friday and Saturday: 10:00 AM - 6:00 PM
+
+Refund Policy:
+- Full refund within 24 hours of booking cancellation.
+- No refund for completed treatments.
+- Rescheduling is free with 24 hours notice.
+
+Skin Type Guidance:
+- Oily skin: We recommend oil-free sunscreens, matte formulations, and gel-based products.
+- Dry skin: Hydrating sunscreens and cream-based products work best.
+- Sensitive skin: Mineral sunscreens and fragrance-free options are available.
